@@ -1,3 +1,14 @@
+
+@font-face {
+    font-family: "Peyda";
+    src: url("font/peyda/PeydaWeb/eot/PeydaWeb-Regular.eot");
+    src: url("font/peyda/PeydaWeb/ttf/Peyda-Regular.ttf") format("truetype");
+    src: url("font/peyda/PeydaWeb/woff/PeydaWeb-Regular.woff") format("woff");
+    src: url("font/peyda/PeydaWeb/woff2/PeydaWeb-Regular.woff2") format("woff2");
+}
+*{
+    font-family: "Peyda";
+}
 body {
     display: flex;
     justify-content: center;
