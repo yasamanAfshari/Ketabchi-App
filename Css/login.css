@@ -23,7 +23,7 @@ body {
     width: 100%;
     min-width: 320px; /* حداقل عرض برای موبایل‌های خیلی کوچک (مثل iPhone SE) */
     max-width: 430px; /* حداکثر عرض برای موبایل‌های بزرگ‌تر (مثل iPhone 14 Pro Max) */
-    min-height: 100vh; /* حداقل ارتفاع برابر ارتفاع صفحه */
+    min-height: 98vh; /* حداقل ارتفاع برابر ارتفاع صفحه */
     max-height: 812px; /* حداکثر ارتفاع مثل آیفون X */
     background: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
