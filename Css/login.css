@@ -35,9 +35,13 @@ body {
   label:has(+ div.required)::after {
     content: "*";
     font-family: initial !important;
+<<<<<<< HEAD
     -webkit-font-family:initial;
     -moz-font-family:initial;
     -ms-font-family:initial;
+=======
+    
+>>>>>>> 6b442b0049156c446b78f2c211609dfcbb0cded0
     color: red;
     font-weight: bold;
     vertical-align: middle;
