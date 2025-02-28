@@ -8,6 +8,7 @@
 }
 *{
     font-family: "Peyda";
+    direction: rtl;
 }
 body {
     display: flex;
@@ -30,3 +31,89 @@ body {
     overflow: hidden;
    
   }
+
+  label:has(+ div.required)::after {
+    content: "*";
+    font-family: initial;
+    color: red;
+    font-weight: bold;
+    vertical-align: middle;
+} 
+.input-container {
+  position: relative;
+  width: 100%; 
+  max-width: 300px; 
+}
+
+.input-container input {
+  width: 100%; 
+  padding: 10px 40px 10px 10px;
+  border-radius: 8px;
+  font-size: 16px; 
+  box-shadow: 0px 0px 30px 0px #82828333;
+  border: 2px solid transparent;
+  height: 46px;
+
+
+}
+input:focus , input:focus-visible{
+  border: 2px solid #ACCA5C;
+  outline: none;
+}
+input::placeholder{
+  font-size: 12px;
+  color: #B3B3B3 !important;
+}
+.input-container .icon {
+  position: absolute;
+  right: 10px;
+  top: 57%;
+  transform: translateY(-50%);
+  width: 20px; /* اندازه مشخص برای آیکون */
+  height: 20px;
+  pointer-events: none; /* کلیک روی SVG اثری نداشته باشه */
+}
+.form-select{
+  font-size: 12px !important;
+  color: #B3B3B3 !important;
+  padding: 10px 40px 10px 10px;
+  background-position: right 0.75rem center;
+}
+select{
+  width: 100%; 
+  padding: 10px 40px 10px 10px;
+  border-radius: 8px !important;
+  font-size: 16px !important; 
+  box-shadow: 0px 0px 30px 0px #82828333;
+  border: 2px solid transparent !important;
+  height: 46px;
+ 
+
+}
+select:focus , select:focus-visible{
+  border: 2px solid #ACCA5C !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+.main-btn{
+  width: 300px;
+  height: 46px;
+  color: white;
+  background-color: #544CF4;
+  border-radius: 8px;
+  border: none;
+  transition: all 0.5s;
+}
+.main-btn:hover{
+  background-color: #7069FF;
+}
+.main-btn:active{
+  background-color: #362FCB;
+}
+.main-btn.disabled{
+  background-color: #544CF4;
+}
+.main-btn:focus-visible , .main-btn:focus{
+  outline: none;
+  border: none;
+}
