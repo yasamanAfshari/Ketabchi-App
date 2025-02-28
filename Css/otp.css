@@ -1,0 +1,31 @@
+.verify-container{
+    direction: ltr;
+}
+.verify-container input{
+    width:55px ;
+    height: 48px;
+    border-radius: 8px;
+    border: 2px solid #ACCA5C;
+    text-align: center;
+}
+.verify-container input.filled{
+    border:5px solid #ACCA5C;
+}
+.btn{
+    width: 39px;
+    height: 39px;
+    color: white;
+    background-color: #544CF4;
+    border-radius: 8px;
+    border: none;
+    transition: all 0.5s;
+  }
+  .btn:hover{
+    background-color: #7069FF;
+  }
+  .btn:active{
+    background-color: #362FCB !important;
+  }
+  .btn.disabled{
+    background-color: #544CF4;
+  }

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>verify</title>
+    <link rel="stylesheet" href="Css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="Css/login.css">
+    <link rel="stylesheet" href="Css/otp.css">
+</head>
+
+<body>
+    <div class="app-container p-4">
+       
+            <a href="index.html" class="btn d-flex justify-content-center align-items-center">
+                <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.06451 6.92742C0.543407 6.92742 0.120966 7.34986 0.120966 7.87097C0.120966 8.39208 0.543407 8.81452 1.06451 8.81452L1.06451 6.92742ZM19.3446 8.53816C19.7131 8.16968 19.7131 7.57226 19.3446 7.20378L13.3399 1.19908C12.9714 0.830597 12.374 0.830597 12.0055 1.19908C11.637 1.56755 11.637 2.16498 12.0055 2.53345L17.343 7.87097L12.0055 13.2085C11.637 13.577 11.637 14.1744 12.0055 14.5429C12.374 14.9113 12.9714 14.9113 13.3399 14.5429L19.3446 8.53816ZM1.06451 8.81452L18.6774 8.81452L18.6774 6.92742L1.06451 6.92742L1.06451 8.81452Z" fill="white"/>
+                    </svg>
+                    
+            </a>
+        
+        <div class="d-flex justify-content-center flex-column align-items-center ">
+            <div class="d-flex justify-content-center">
+                <img src="Image/verify.png" alt="login" class="w-75 h-auto">
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center mt-3 w-100">
+                <h1 class="fw-bold">
+                    کد تایید
+                </h1>
+                <p class="text-center">
+                    کد تایید به شماره موبایل
+                    <span class="user-number">۰۹۳۶۶۷۰۰۲۹۰</span>
+                    ارسال شد.
+                </p>
+
+                <div class="verify-container w-100 d-flex justify-content-around ">
+                    <input type="text" pattern="[0-9]" maxlength="1" oninput="moveToNext(this, 'input2')" id="input1"
+                        tabindex="1">
+                    <input type="text" pattern="[0-9]" maxlength="1" oninput="moveToNext(this, 'input3')" id="input2"
+                        tabindex="2">
+                    <input type="text" pattern="[0-9]" maxlength="1" oninput="moveToNext(this, 'input4')" id="input3"
+                        tabindex="3">
+                    <input type="text" pattern="[0-9]" maxlength="1"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '')" id="input4" tabindex="4" class="">
+
+                    
+                </div>
+                <div class="w-100 p-3">
+                 <p id="timerWrapper">زمان باقی مانده تا ارسال مجدد رمز
+                   <span id="timer">
+                    ۱:۳۰
+                   </span> 
+                 </p>
+                </div>
+
+
+                <div class="d-flex justify-content-center mt-5">
+                    <button class="main-btn">
+                    تایید
+
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.93335 5.03997C6.14002 2.63997 7.37335 1.65997 10.0733 1.65997H10.16C13.14 1.65997 14.3334 2.85331 14.3334 5.83331V10.18C14.3334 13.16 13.14 14.3533 10.16 14.3533H10.0733C7.39335 14.3533 6.16002 13.3866 5.94002 11.0266" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <g opacity="0.4">
+                        <path d="M1.33337 8H9.92004" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8.43359 5.76691L10.6669 8.00024L8.43359 10.2336" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        </svg>
+                        
+                </button>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+    <script>
+
+        function moveToNext(current, nextInputId) {
+            current.value = current.value.replace(/[^0-9]/g, '');
+            if (current.value.length === 1 && nextInputId) {
+                document.getElementById(nextInputId).focus();
+            }
+            if (current.value.length > 0) {
+                current.classList.add('filled');
+            } else {
+                current.classList.remove('filled');
+            }
+
+        }
+
+
+    </script>
+
+<script>
+   
+    let remainingTime = 10; 
+
+    function startTimer() {
+        const timerElement = document.getElementById('timer');
+        const timerWrapper = document.getElementById('timerWrapper');
+        
+        const interval = setInterval(function() {
+            const minutes = Math.floor(remainingTime / 60);
+            const seconds = remainingTime % 60;
+            
+            timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            
+            remainingTime--;
+            
+            if (remainingTime < 0) {
+                clearInterval(interval);
+                const linkElement = document.createElement('a');
+                linkElement.href = "#";  
+                linkElement.textContent = "ارسال مجدد رمز";
+                
+                timerElement.replaceWith(linkElement);
+                timerWrapper.remove();
+                document.querySelector('.w-100.p-3').appendChild(linkElement);
+            }
+        }, 1000);
+    }
+
+    startTimer();
+</script>
+    <script src="Script/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

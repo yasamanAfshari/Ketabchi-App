@@ -35,7 +35,7 @@ body {
   label:has(+ div.required)::after {
     content: "*";
     font-family: initial !important;
-    color: red;
+    color: red !important;
     font-weight: bold;
     vertical-align: middle;
 } 
