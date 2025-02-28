@@ -36,13 +36,13 @@
 
                 <div class="verify-container w-100 d-flex justify-content-around ">
                     <input type="text" pattern="[0-9]" maxlength="1" oninput="moveToNext(this, 'input2')" id="input1"
-                        tabindex="1">
+                        tabindex="1" inputmode="numeric">
                     <input type="text" pattern="[0-9]" maxlength="1" oninput="moveToNext(this, 'input3')" id="input2"
-                        tabindex="2">
+                        tabindex="2" inputmode="numeric">
                     <input type="text" pattern="[0-9]" maxlength="1" oninput="moveToNext(this, 'input4')" id="input3"
-                        tabindex="3">
+                        tabindex="3" inputmode="numeric">
                     <input type="text" pattern="[0-9]" maxlength="1"
-                        oninput="this.value = this.value.replace(/[^0-9]/g, '')" id="input4" tabindex="4" class="">
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '')" id="input4" tabindex="4" inputmode="numeric">
 
                     
                 </div>
